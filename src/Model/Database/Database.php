@@ -2,9 +2,6 @@
 
 namespace Inserve\MetabaseAPI\Model\Database;
 
-use Symfony\Component\Serializer\NameConverter\CamelCaseToSnakeCaseNameConverter;
-use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
-
 /**
  *
  */
@@ -35,16 +32,6 @@ class Database
     protected ?string $createdAt = null;
     protected ?string $pointsOfInterest = null;
     protected ?bool $canUpload = null;
-
-    private ObjectNormalizer $normalizer;
-
-    /**
-     *
-     */
-    public function __construct()
-    {
-        $this->normalizer = new ObjectNormalizer(null, new CamelCaseToSnakeCaseNameConverter());
-    }
 
     /**
      * @return string|null
@@ -391,16 +378,12 @@ class Database
     }
 
     /**
-     * @param Details|array|null $details
+     * @param Details|null $details
      *
      * @return self
      */
-    public function setDetails(Details|null|array $details): self
+    public function setDetails(?Details $details): self
     {
-        if (is_array($details)) {
-            $details = $this->normalizer->denormalize($details, Details::class);
-        }
-
         $this->details = $details;
 
         return $this;
@@ -443,16 +426,12 @@ class Database
     }
 
     /**
-     * @param Schedule|null|array $schedules
+     * @param Schedule|null $schedules
      *
      * @return self
      */
-    public function setSchedules(Schedule|null|array $schedules): self
+    public function setSchedules(?Schedule $schedules): self
     {
-        if (is_array($schedules)) {
-            $schedules = $this->normalizer->denormalize($schedules, Schedule::class);
-        }
-
         $this->schedules = $schedules;
 
         return $this;
@@ -495,16 +474,12 @@ class Database
     }
 
     /**
-     * @param DbmsVersion|array|null $dbmsVersion
+     * @param DbmsVersion|null $dbmsVersion
      *
      * @return self
      */
-    public function setDbmsVersion(DbmsVersion|null|array $dbmsVersion): self
+    public function setDbmsVersion(?DbmsVersion $dbmsVersion): self
     {
-        if (is_array($dbmsVersion)) {
-            $dbmsVersion = $this->normalizer->denormalize($dbmsVersion, DbmsVersion::class);
-        }
-
         $this->dbmsVersion = $dbmsVersion;
 
         return $this;

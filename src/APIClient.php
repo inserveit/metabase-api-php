@@ -6,6 +6,8 @@ use Exception;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Request;
+use Psr\Log\LoggerInterface;
+use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\NameConverter\CamelCaseToSnakeCaseNameConverter;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
@@ -23,9 +25,9 @@ class APIClient
     /**
      * @param ClientInterface $client
      */
-    public function __construct(protected ClientInterface $client)
+    public function __construct(protected ClientInterface $client, protected ?LoggerInterface $logger)
     {
-        $this->normalizer = new ObjectNormalizer(null, new CamelCaseToSnakeCaseNameConverter());
+        $this->normalizer = new ObjectNormalizer(null, new CamelCaseToSnakeCaseNameConverter(), null, new ReflectionExtractor());
         $this->serializer = new Serializer([$this->normalizer], [new JsonEncoder()]);
     }
 
@@ -90,9 +92,7 @@ class APIClient
         try {
             return $this->serializer->deserialize($response, $class, 'json');
         } catch (Exception $exception) {
-            //@todo log error
-
-            var_dump($exception->getMessage());
+            $this->logError(sprintf('(%s): %s', __FUNCTION__, $exception->getMessage()));
 
             return null;
         }
@@ -122,8 +122,7 @@ class APIClient
 
             return $list;
         } catch (Exception $exception) {
-            //@todo log error
-            var_dump($exception->getMessage());
+            $this->logError(sprintf('(%s): %s', __FUNCTION__, $exception->getMessage()));
 
             return [];
         }
@@ -143,5 +142,19 @@ class APIClient
         }
 
         return $headers;
+    }
+
+    /**
+     * @param string $message
+     *
+     * @return void
+     */
+    private function logError(string $message): void
+    {
+        if (!$this->logger) {
+            return;
+        }
+
+        $this->logger->error($message);
     }
 }

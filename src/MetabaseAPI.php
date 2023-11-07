@@ -6,26 +6,30 @@ use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Request;
 use Inserve\MetabaseAPI\API\CollectionAPI;
+use Inserve\MetabaseAPI\API\DashboardAPI;
 use Inserve\MetabaseAPI\API\PermissionsAPI;
 use Inserve\MetabaseAPI\API\UserAPI;
 use Inserve\MetabaseAPI\API\DatabaseAPI;
+use Psr\Log\LoggerInterface;
 
 /**
- * @property UserAPI        $user
- * @property DatabaseAPI    $database
- * @property PermissionsAPI $permissions
  * @property CollectionAPI  $collection
+ * @property DatabaseAPI    $database
+ * @property DashboardAPI   $dashboard
+ * @property PermissionsAPI $permissions
+ * @property UserAPI        $user
  */
 class MetabaseAPI
 {
     protected APIClient $apiClient;
 
     /**
-     * @param ClientInterface $client
+     * @param ClientInterface      $client
+     * @param LoggerInterface|null $logger
      */
-    public function __construct(protected ClientInterface $client)
+    public function __construct(protected ClientInterface $client, protected ?LoggerInterface $logger = null)
     {
-        $this->apiClient = new APIClient($this->client);
+        $this->apiClient = new APIClient($this->client, $this->logger);
     }
 
     /**
