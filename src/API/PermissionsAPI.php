@@ -75,14 +75,7 @@ class PermissionsAPI extends AbstractAPIClient
             '/api/permissions/group'
         );
 
-        $response = json_decode($response, true);
-        $groups = [];
-
-        foreach ($response as $group) {
-            $groups[] = $this->apiClient->denormalize($group, Group::class);
-        }
-
-        return $groups;
+        return $this->apiClient->deserializeList($response, Group::class);
     }
 
     /**
@@ -130,7 +123,10 @@ class PermissionsAPI extends AbstractAPIClient
      */
     public function deleteGroup(int $id): void
     {
-        $this->apiClient->call('DELETE', sprintf('/api/permissions/group/%d', $id));
+        $this->apiClient->call(
+            'DELETE',
+            sprintf('/api/permissions/group/%d', $id)
+        );
     }
 
     /**
@@ -154,13 +150,6 @@ class PermissionsAPI extends AbstractAPIClient
             ])
         );
 
-        $response = json_decode($response, true);
-        $memberships = [];
-
-        foreach ($response as $membership) {
-            $memberships[] = $this->apiClient->denormalize($membership, Membership::class);
-        }
-
-        return $memberships;
+        return $this->apiClient->deserializeList($response, Membership::class);
     }
 }

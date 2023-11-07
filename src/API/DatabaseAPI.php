@@ -95,17 +95,7 @@ class DatabaseAPI extends AbstractAPIClient
             sprintf('/api/database?%s', http_build_query($options))
         );
 
-        $response = json_decode($response, true);
-        if (!isset($response['data'])) {
-            return [];
-        }
-
-        $databases = [];
-        foreach ($response['data'] as $database) {
-            $databases[] = $this->apiClient->denormalize($database, Database::class);
-        }
-
-        return $databases;
+        return $this->apiClient->deserializeList($response, Database::class, 'data');
     }
 
     /**
@@ -125,17 +115,7 @@ class DatabaseAPI extends AbstractAPIClient
             sprintf('/api/database/%d/metadata?%s', $id, http_build_query($options))
         );
 
-        $response = json_decode($response, true);
-        if (!isset($response['tables'])) {
-            return [];
-        }
-
-        $tables = [];
-        foreach ($response['tables'] as $table) {
-            $tables[] = $this->apiClient->denormalize($table, Table::class);
-        }
-
-        return $tables;
+        return $this->apiClient->deserializeList($response, Table::class, 'tables');
     }
 
     /**

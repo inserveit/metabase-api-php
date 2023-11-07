@@ -99,14 +99,34 @@ class APIClient
     }
 
     /**
-     * @param mixed  $data
-     * @param string $class
+     * @param string|null $response
+     * @param string      $class
+     * @param string|null $key
      *
-     * @return mixed
+     * @return array
      */
-    public function denormalize(mixed $data, string $class): mixed
+    public function deserializeList(?string $response, string $class, ?string $key = null): array
     {
-        return $this->normalizer->denormalize($data, $class);
+        try {
+            $response = json_decode($response, true);
+            if ($key && !isset($response[$key])) {
+                return [];
+            }
+
+            $list = [];
+            $items = $key ? $response[$key] : $response;
+
+            foreach ($items as $item) {
+                $list[] = $this->normalizer->denormalize($item, $class);
+            }
+
+            return $list;
+        } catch (Exception $exception) {
+            //@todo log error
+            var_dump($exception->getMessage());
+
+            return [];
+        }
     }
 
     /**

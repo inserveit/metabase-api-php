@@ -109,16 +109,6 @@ class UserAPI extends AbstractAPIClient
             sprintf('/api/user?%s', http_build_query($options))
         );
 
-        $response = json_decode($response, true);
-        if (!isset($response['data'])) {
-            return [];
-        }
-
-        $users = [];
-        foreach ($response['data'] as $user) {
-            $users[] = $this->apiClient->denormalize($user, User::class);
-        }
-
-        return $users;
+        return $this->apiClient->deserializeList($response, User::class, 'data');
     }
 }

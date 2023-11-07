@@ -5,6 +5,7 @@ namespace Inserve\MetabaseAPI;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Request;
+use Inserve\MetabaseAPI\API\CollectionAPI;
 use Inserve\MetabaseAPI\API\PermissionsAPI;
 use Inserve\MetabaseAPI\API\UserAPI;
 use Inserve\MetabaseAPI\API\DatabaseAPI;
@@ -13,6 +14,7 @@ use Inserve\MetabaseAPI\API\DatabaseAPI;
  * @property UserAPI        $user
  * @property DatabaseAPI    $database
  * @property PermissionsAPI $permissions
+ * @property CollectionAPI  $collection
  */
 class MetabaseAPI
 {
