@@ -31,7 +31,7 @@ class CollectionAPI extends AbstractAPIClient
     /**
      * @param array $options
      *
-     * @return array
+     * @return Collection[]
      *
      * @throws MetabaseAPIException
      *
