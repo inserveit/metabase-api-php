@@ -6,10 +6,10 @@ use Exception;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Request;
+use Inserve\MetabaseAPI\NameConverter\MetabasePropertyNameConverter;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Symfony\Component\Serializer\NameConverter\CamelCaseToSnakeCaseNameConverter;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 
@@ -27,7 +27,7 @@ class APIClient
      */
     public function __construct(protected ClientInterface $client, protected ?LoggerInterface $logger)
     {
-        $this->normalizer = new ObjectNormalizer(null, new CamelCaseToSnakeCaseNameConverter(), null, new ReflectionExtractor());
+        $this->normalizer = new ObjectNormalizer(null, new MetabasePropertyNameConverter(), null, new ReflectionExtractor());
         $this->serializer = new Serializer([$this->normalizer], [new JsonEncoder()]);
     }
 
