@@ -3,7 +3,7 @@
 namespace Inserve\MetabaseAPI\Model\Bookmark;
 
 /**
- * 
+ *
  */
 class Bookmark
 {
