@@ -2,6 +2,9 @@
 
 namespace Inserve\MetabaseAPI\Model\Dashboard;
 
+use Inserve\MetabaseAPI\Model\Card\Card;
+use Inserve\MetabaseAPI\Model\Card\VisualizationSettings;
+
 /**
  *
  */

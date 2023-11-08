@@ -1,6 +1,6 @@
 <?php
 
-namespace Inserve\MetabaseAPI\Model\Dashboard;
+namespace Inserve\MetabaseAPI\Model\Card;
 
 use Inserve\MetabaseAPI\Model\Database\Fingerprint;
 

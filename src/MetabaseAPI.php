@@ -5,6 +5,7 @@ namespace Inserve\MetabaseAPI;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Request;
+use Inserve\MetabaseAPI\API\CardAPI;
 use Inserve\MetabaseAPI\API\CollectionAPI;
 use Inserve\MetabaseAPI\API\DashboardAPI;
 use Inserve\MetabaseAPI\API\PermissionsAPI;
@@ -13,6 +14,7 @@ use Inserve\MetabaseAPI\API\DatabaseAPI;
 use Psr\Log\LoggerInterface;
 
 /**
+ * @property CardAPI        $card
  * @property CollectionAPI  $collection
  * @property DatabaseAPI    $database
  * @property DashboardAPI   $dashboard
