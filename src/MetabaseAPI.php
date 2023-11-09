@@ -10,6 +10,7 @@ use Inserve\MetabaseAPI\API\CardAPI;
 use Inserve\MetabaseAPI\API\CollectionAPI;
 use Inserve\MetabaseAPI\API\DashboardAPI;
 use Inserve\MetabaseAPI\API\PermissionsAPI;
+use Inserve\MetabaseAPI\API\TableAPI;
 use Inserve\MetabaseAPI\API\UserAPI;
 use Inserve\MetabaseAPI\API\DatabaseAPI;
 use Psr\Log\LoggerInterface;
@@ -21,6 +22,7 @@ use Psr\Log\LoggerInterface;
  * @property DatabaseAPI    $database
  * @property DashboardAPI   $dashboard
  * @property PermissionsAPI $permissions
+ * @property TableAPI       $table
  * @property UserAPI        $user
  */
 class MetabaseAPI
