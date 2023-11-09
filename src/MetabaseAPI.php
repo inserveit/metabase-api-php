@@ -9,6 +9,7 @@ use Inserve\MetabaseAPI\API\BookmarkAPI;
 use Inserve\MetabaseAPI\API\CardAPI;
 use Inserve\MetabaseAPI\API\CollectionAPI;
 use Inserve\MetabaseAPI\API\DashboardAPI;
+use Inserve\MetabaseAPI\API\FieldAPI;
 use Inserve\MetabaseAPI\API\PermissionsAPI;
 use Inserve\MetabaseAPI\API\TableAPI;
 use Inserve\MetabaseAPI\API\UserAPI;
@@ -21,6 +22,7 @@ use Psr\Log\LoggerInterface;
  * @property CollectionAPI  $collection
  * @property DatabaseAPI    $database
  * @property DashboardAPI   $dashboard
+ * @property FieldAPI       $field
  * @property PermissionsAPI $permissions
  * @property TableAPI       $table
  * @property UserAPI        $user
