@@ -8,8 +8,11 @@ use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Request;
 use Inserve\MetabaseAPI\NameConverter\MetabasePropertyNameConverter;
 use Psr\Log\LoggerInterface;
+use Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor;
 use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
+use Symfony\Component\PropertyInfo\PropertyInfoExtractor;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 
@@ -23,12 +26,14 @@ class APIClient
     protected ObjectNormalizer $normalizer;
 
     /**
-     * @param ClientInterface $client
+     * @param ClientInterface      $client
+     * @param LoggerInterface|null $logger
      */
     public function __construct(protected ClientInterface $client, protected ?LoggerInterface $logger)
     {
-        $this->normalizer = new ObjectNormalizer(null, new MetabasePropertyNameConverter(), null, new ReflectionExtractor());
-        $this->serializer = new Serializer([$this->normalizer], [new JsonEncoder()]);
+        $extractor = new PropertyInfoExtractor([], [new PhpDocExtractor(), new ReflectionExtractor()]);
+        $this->normalizer = new ObjectNormalizer(null, new MetabasePropertyNameConverter(), null, $extractor);
+        $this->serializer = new Serializer([$this->normalizer, new ArrayDenormalizer()], [new JsonEncoder()]);
     }
 
     /**
