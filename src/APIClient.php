@@ -55,6 +55,14 @@ class APIClient
     }
 
     /**
+     * @return string|null
+     */
+    public function getSessionToken(): ?string
+    {
+        return $this->sessionToken;
+    }
+
+    /**
      * @param string      $method
      * @param string      $url
      * @param string|null $body

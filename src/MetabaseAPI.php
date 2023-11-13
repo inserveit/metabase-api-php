@@ -102,4 +102,20 @@ class MetabaseAPI
             throw new MetabaseAPIException($exception->getMessage(), $exception->getCode());
         }
     }
+
+    /**
+     * @return string
+     *
+     * @throws MetabaseAPIException
+     */
+    public function getSessionToken(): string
+    {
+        $sessionToken = $this->apiClient->getSessionToken();
+
+        if (!$sessionToken) {
+            throw new MetabaseAPIException('Not authenticated', 401);
+        }
+
+        return $sessionToken;
+    }
 }
