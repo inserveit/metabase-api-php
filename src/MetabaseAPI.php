@@ -122,4 +122,15 @@ class MetabaseAPI
 
         return $sessionToken;
     }
+
+    /**
+     * @param string $json
+     * @param string $class
+     *
+     * @return mixed
+     */
+    public function createFromJson(string $json, string $class): mixed
+    {
+        return $this->apiClient->deserialize($json, $class);
+    }
 }

@@ -2,16 +2,20 @@
 
 namespace Inserve\MetabaseAPI;
 
+use Doctrine\Common\Annotations\AnnotationReader;
 use Exception;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Request;
-use Inserve\MetabaseAPI\NameConverter\MetabasePropertyNameConverter;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor;
 use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
 use Symfony\Component\PropertyInfo\PropertyInfoExtractor;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
+use Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader;
+use Symfony\Component\Serializer\NameConverter\CamelCaseToSnakeCaseNameConverter;
+use Symfony\Component\Serializer\NameConverter\MetadataAwareNameConverter;
 use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
@@ -31,8 +35,20 @@ class APIClient
      */
     public function __construct(protected ClientInterface $client, protected ?LoggerInterface $logger)
     {
-        $extractor = new PropertyInfoExtractor([], [new PhpDocExtractor(), new ReflectionExtractor()]);
-        $this->normalizer = new ObjectNormalizer(null, new MetabasePropertyNameConverter(), null, $extractor);
+        $classMetadataFactory = new ClassMetadataFactory(new AnnotationLoader(new AnnotationReader()));
+        $nameConverter =  new MetadataAwareNameConverter($classMetadataFactory, new CamelCaseToSnakeCaseNameConverter());
+        $extractor = new PropertyInfoExtractor(
+            typeExtractors: [
+                new PhpDocExtractor(),
+                new ReflectionExtractor(),
+            ]
+        );
+        $this->normalizer = new ObjectNormalizer(
+            classMetadataFactory: $classMetadataFactory,
+            nameConverter: $nameConverter,
+            propertyTypeExtractor: $extractor
+        );
+
         $this->serializer = new Serializer([$this->normalizer, new ArrayDenormalizer()], [new JsonEncoder()]);
     }
 
