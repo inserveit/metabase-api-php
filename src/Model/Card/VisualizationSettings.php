@@ -45,6 +45,7 @@ class VisualizationSettings
     protected ?array $graphDimensions = null;
     protected ?string $tablePivotColumn = null;
     protected ?string $tableCellColumn = null;
+    protected ?array $columnSettings = null;
 
     /**
      * @return string|null
@@ -148,6 +149,14 @@ class VisualizationSettings
     public function getGraphDimensions(): ?array
     {
         return $this->graphDimensions;
+    }
+
+    /**
+     * @return array|null
+     */
+    public function getColumnSettings(): ?array
+    {
+        return $this->columnSettings;
     }
 
     /**
@@ -300,6 +309,18 @@ class VisualizationSettings
     public function setTableCellColumn(?string $tableCellColumn): self
     {
         $this->tableCellColumn = $tableCellColumn;
+
+        return $this;
+    }
+
+    /**
+     * @param array|null $columnSettings
+     *
+     * @return self
+     */
+    public function setColumnSettings(?array $columnSettings): self
+    {
+        $this->columnSettings = $columnSettings;
 
         return $this;
     }
