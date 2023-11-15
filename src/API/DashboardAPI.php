@@ -4,6 +4,7 @@ namespace Inserve\MetabaseAPI\API;
 
 use Inserve\MetabaseAPI\MetabaseAPIException;
 use Inserve\MetabaseAPI\Model\Dashboard\Dashboard;
+use Inserve\MetabaseAPI\Model\Dashboard\OrderedCard;
 
 /**
  *
@@ -93,5 +94,24 @@ class DashboardAPI extends AbstractAPIClient
             'DELETE',
             sprintf('/api/dashboard/%d', $id)
         );
+    }
+
+    /**
+     * @param Dashboard $dashboard
+     * @param array     $cards
+     *
+     * @return OrderedCard[]
+     *
+     * @throws MetabaseAPIException
+     */
+    public function addCards(Dashboard $dashboard, array $cards): array
+    {
+        $response = $this->apiClient->call(
+            'PUT',
+            sprintf('/api/dashboard/%d/cards', $dashboard->getId()),
+            $this->apiClient->serialize(['cards' => $cards])
+        );
+
+        return $this->apiClient->deserializeList($response, OrderedCard::class, 'cards');
     }
 }

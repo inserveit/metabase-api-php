@@ -12,7 +12,7 @@ class Dashboard
     protected ?string $description = null;
     protected ?bool $archived = null;
     protected ?int $collectionPosition = null;
-    /** @var OrderedCards[]|null */
+    /** @var OrderedCard[]|null */
     protected ?array $orderedCards = null;
     protected ?array $paramValues = null;
     protected ?bool $canWrite = null;
@@ -62,7 +62,7 @@ class Dashboard
     }
 
     /**
-     * @return OrderedCards[]|null
+     * @return OrderedCard[]|null
      */
     public function getOrderedCards(): ?array
     {
@@ -282,7 +282,7 @@ class Dashboard
     }
 
     /**
-     * @param OrderedCards[]|null $orderedCards
+     * @param OrderedCard[]|null $orderedCards
      */
     public function setOrderedCards(?array $orderedCards): self
     {

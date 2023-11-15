@@ -16,6 +16,7 @@ use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
 use Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader;
 use Symfony\Component\Serializer\NameConverter\CamelCaseToSnakeCaseNameConverter;
 use Symfony\Component\Serializer\NameConverter\MetadataAwareNameConverter;
+use Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer;
 use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
@@ -46,7 +47,8 @@ class APIClient
         $this->normalizer = new ObjectNormalizer(
             classMetadataFactory: $classMetadataFactory,
             nameConverter: $nameConverter,
-            propertyTypeExtractor: $extractor
+            propertyTypeExtractor: $extractor,
+            defaultContext: [AbstractObjectNormalizer::SKIP_NULL_VALUES => true]
         );
 
         $this->serializer = new Serializer([$this->normalizer, new ArrayDenormalizer()], [new JsonEncoder()]);
