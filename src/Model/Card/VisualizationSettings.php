@@ -2,6 +2,7 @@
 
 namespace Inserve\MetabaseAPI\Model\Card;
 
+use Inserve\MetabaseAPI\Model\Database\TableColumn;
 use Symfony\Component\Serializer\Annotation\SerializedName;
 
 /**
@@ -43,9 +44,25 @@ class VisualizationSettings
     /** @var string[]|null */
     #[SerializedName('graph.dimensions')]
     protected ?array $graphDimensions = null;
+
+    /** @var TableColumn[]|null */
+    #[SerializedName('table.columns')]
+    protected ?array $tableColumns = null;
+
+    #[SerializedName('table.pivot_column')]
     protected ?string $tablePivotColumn = null;
+
+    #[SerializedName('table.cell_column')]
     protected ?string $tableCellColumn = null;
     protected ?array $columnSettings = null;
+
+    /**
+     * @return TableColumn[]|null
+     */
+    public function getTableColumns(): ?array
+    {
+        return $this->tableColumns;
+    }
 
     /**
      * @return string|null
@@ -157,6 +174,18 @@ class VisualizationSettings
     public function getColumnSettings(): ?array
     {
         return $this->columnSettings;
+    }
+
+    /**
+     * @param TableColumn[]|null $tableColumns
+     *
+     * return self
+     */
+    public function setTableColumns(?array $tableColumns): self
+    {
+        $this->tableColumns = $tableColumns;
+
+        return $this;
     }
 
     /**
