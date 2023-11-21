@@ -48,9 +48,9 @@ class MetabaseAPI
      * @param string $name
      * @param array  $arguments
      *
-     * @return void
+     * @return mixed
      */
-    public function __call(string $name, array $arguments)
+    public function __call(string $name, array $arguments): mixed
     {
         return $this->__get($name);
     }
@@ -58,9 +58,9 @@ class MetabaseAPI
     /**
      * @param string $name
      *
-     * @return mixed|null
+     * @return mixed
      */
-    public function __get(string $name)
+    public function __get(string $name): mixed
     {
         $fqdnClass = sprintf('%s\\API\\%sAPI', __NAMESPACE__, ucfirst($name));
 

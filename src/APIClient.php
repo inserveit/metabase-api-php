@@ -37,7 +37,11 @@ class APIClient
     public function __construct(protected ClientInterface $client, protected ?LoggerInterface $logger)
     {
         $classMetadataFactory = new ClassMetadataFactory(new AnnotationLoader(new AnnotationReader()));
-        $nameConverter =  new MetadataAwareNameConverter($classMetadataFactory, new CamelCaseToSnakeCaseNameConverter());
+        $nameConverter =  new MetadataAwareNameConverter(
+            $classMetadataFactory,
+            new CamelCaseToSnakeCaseNameConverter()
+        );
+
         $extractor = new PropertyInfoExtractor(
             typeExtractors: [
                 new PhpDocExtractor(),
@@ -98,7 +102,10 @@ class APIClient
 
             return (string) $response->getBody();
         } catch (GuzzleException $exception) {
-            throw new MetabaseAPIException(sprintf('(%s) %s: %s', $method, $url, $exception->getMessage()), $exception->getCode());
+            throw new MetabaseAPIException(
+                sprintf('(%s) %s: %s', $method, $url, $exception->getMessage()),
+                $exception->getCode()
+            );
         }
     }
 
