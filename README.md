@@ -2,6 +2,8 @@
 
 A PHP Wrapper for [Metabase](https://metabase.com)
 
+![workflow](https://github.com/inserveit/metabase-api-php/actions/workflows/build-actions.yml/badge.svg)
+
 ## Requirements
 - PHP 8.2
 
