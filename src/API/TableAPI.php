@@ -51,9 +51,14 @@ class TableAPI extends AbstractAPIClient
      */
     public function update(Table $table): ?Table
     {
+        $tableId = $table->getId();
+        if (!$tableId) {
+            return null;
+        }
+
         $response = $this->apiClient->call(
             'PUT',
-            sprintf('/api/table/%d', $table->getId()),
+            sprintf('/api/table/%d', $tableId),
             $this->apiClient->serialize($table)
         );
 

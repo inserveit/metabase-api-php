@@ -7,8 +7,8 @@ namespace Inserve\MetabaseAPI\Model\Database;
  */
 class Schedule
 {
-    protected ?CacheFieldValues $cacheFieldValues;
-    protected ?MetadataSync $metadataSync;
+    protected ?CacheFieldValues $cacheFieldValues = null;
+    protected ?MetadataSync $metadataSync = null;
 
     /**
      * @return CacheFieldValues|null

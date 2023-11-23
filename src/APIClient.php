@@ -146,6 +146,10 @@ class APIClient
     public function deserializeList(?string $response, string $class, ?string $key = null): array
     {
         try {
+            if (!$response) {
+                return [];
+            }
+
             $response = json_decode($response, true);
             if ($key && !isset($response[$key])) {
                 return [];

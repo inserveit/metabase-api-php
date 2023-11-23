@@ -38,9 +38,14 @@ class DatabaseAPI extends AbstractAPIClient
      */
     public function update(Database $database): ?Database
     {
+        $databaseId = $database->getId();
+        if (!$databaseId) {
+            return null;
+        }
+
         $response = $this->apiClient->call(
             'PUT',
-            sprintf('/api/database/%d', $database->getId()),
+            sprintf('/api/database/%d', $databaseId),
             $this->apiClient->serialize($database)
         );
 

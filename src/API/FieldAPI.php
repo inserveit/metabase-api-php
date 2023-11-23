@@ -36,9 +36,14 @@ class FieldAPI extends AbstractAPIClient
      */
     public function update(Field $field): ?Field
     {
+        $fieldId = $field->getId();
+        if (!$fieldId) {
+            return null;
+        }
+
         $response = $this->apiClient->call(
             'PUT',
-            sprintf('/api/field/%d', $field->getId()),
+            sprintf('/api/field/%d', $fieldId),
             $this->apiClient->serialize($field)
         );
 

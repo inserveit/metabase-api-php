@@ -35,11 +35,16 @@ class EmbedAPI extends AbstractAPIClient
      */
     public function setExpiresAt(?int $seconds = null): self
     {
-        if (!$seconds) {
-            $this->expiresAt = null;
-        } else {
-            $this->expiresAt = (new DateTimeImmutable())->modify(sprintf('+%d seconds', $seconds));
+        $expiresAt = null;
+
+        if ($seconds) {
+            $expiresAt = (new DateTimeImmutable())->modify(sprintf('+%d seconds', $seconds));
+            if (!$expiresAt) {
+                $expiresAt = null;
+            }
         }
+
+        $this->expiresAt = $expiresAt;
 
         return $this;
     }

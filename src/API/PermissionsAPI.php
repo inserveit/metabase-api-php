@@ -105,9 +105,14 @@ class PermissionsAPI extends AbstractAPIClient
      */
     public function updateGroup(Group $group): ?Group
     {
+        $groupId = $group->getId();
+        if (!$groupId) {
+            return null;
+        }
+
         $response = $this->apiClient->call(
             'PUT',
-            sprintf('/api/permissions/group/%d', $group->getId()),
+            sprintf('/api/permissions/group/%d', $groupId),
             json_encode(['name' => $group->getName()])
         );
 

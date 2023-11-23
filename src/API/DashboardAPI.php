@@ -72,9 +72,14 @@ class DashboardAPI extends AbstractAPIClient
      */
     public function update(Dashboard $dashboard): ?Dashboard
     {
+        $dashboardId = $dashboard->getId();
+        if (!$dashboardId) {
+            return null;
+        }
+
         $response = $this->apiClient->call(
             'PUT',
-            sprintf('/api/dashboard/%d', $dashboard->getId()),
+            sprintf('/api/dashboard/%d', $dashboardId),
             $this->apiClient->serialize($dashboard)
         );
 
@@ -106,9 +111,14 @@ class DashboardAPI extends AbstractAPIClient
      */
     public function addCards(Dashboard $dashboard, array $cards): array
     {
+        $dashboardId = $dashboard->getId();
+        if (!$dashboardId) {
+            return [];
+        }
+
         $response = $this->apiClient->call(
             'PUT',
-            sprintf('/api/dashboard/%d/cards', $dashboard->getId()),
+            sprintf('/api/dashboard/%d/cards', $dashboardId),
             $this->apiClient->serialize(['cards' => $cards])
         );
 

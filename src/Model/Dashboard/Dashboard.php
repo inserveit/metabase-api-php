@@ -27,7 +27,7 @@ class Dashboard
     protected ?int $cacheTtl = null;
     protected ?array $orderedTabs = null;
     protected ?int $id = null;
-    protected null $position = null;
+    protected ?int $position = null;
     protected ?string $entityId = null;
     protected ?array $paramFields = null;
     protected ?Collection $collection = null;

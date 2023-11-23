@@ -37,9 +37,14 @@ class UserAPI extends AbstractAPIClient
      */
     public function update(User $user): ?User
     {
+        $userId = $user->getId();
+        if (!$userId) {
+            return null;
+        }
+
         $response = $this->apiClient->call(
             'PUT',
-            sprintf('/api/user/%d', $user->getId()),
+            sprintf('/api/user/%d', $userId),
             $this->apiClient->serialize($user)
         );
 
@@ -54,9 +59,14 @@ class UserAPI extends AbstractAPIClient
      */
     public function updatePassword(User $user, string $password): void
     {
+        $userId = $user->getId();
+        if (!$userId) {
+            return;
+        }
+
         $this->apiClient->call(
             'PUT',
-            sprintf('/api/user/%d/password', $user->getId()),
+            sprintf('/api/user/%d/password', $userId),
             json_encode([
                 'password' => $password,
             ])

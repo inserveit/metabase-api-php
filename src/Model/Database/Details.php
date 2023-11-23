@@ -7,14 +7,14 @@ namespace Inserve\MetabaseAPI\Model\Database;
  */
 class Details
 {
-    protected ?string $host;
-    protected ?int $port;
-    protected ?string $dbname;
-    protected ?string $user;
-    protected ?string $password;
-    protected ?bool $ssl;
-    protected ?bool $tunnelEnabled;
-    protected ?bool $advancedOptions;
+    protected ?string $host = null;
+    protected ?int $port = null;
+    protected ?string $dbname = null;
+    protected ?string $user = null;
+    protected ?string $password = null;
+    protected ?bool $ssl = null;
+    protected ?bool $tunnelEnabled = null;
+    protected ?bool $advancedOptions = null;
 
     /**
      * @return string|null

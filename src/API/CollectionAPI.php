@@ -74,9 +74,14 @@ class CollectionAPI extends AbstractAPIClient
      */
     public function update(Collection $collection): ?Collection
     {
+        $collectionId = $collection->getId();
+        if (!$collectionId) {
+            return null;
+        }
+
         $response = $this->apiClient->call(
             'PUT',
-            sprintf('/api/collection/%s', $collection->getId()),
+            sprintf('/api/collection/%s', $collectionId),
             $this->apiClient->serialize($collection)
         );
 

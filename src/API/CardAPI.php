@@ -71,9 +71,14 @@ class CardAPI extends AbstractAPIClient
      */
     public function update(Card $card): ?Card
     {
+        $cardId = $card->getId();
+        if (!$cardId) {
+            return null;
+        }
+
         $response = $this->apiClient->call(
             'PUT',
-            sprintf('/api/card/%d', $card->getId()),
+            sprintf('/api/card/%d', $cardId),
             $this->apiClient->serialize($card)
         );
 

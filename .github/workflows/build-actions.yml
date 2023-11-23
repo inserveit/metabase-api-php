@@ -32,6 +32,9 @@ jobs:
       - name: Run PHPCS
         run: ./vendor/bin/phpcs src tests -v --standard=PSR2
 
+      - name: Run Psalm
+        run: ./vendor/bin/psalm --show-info=true
+
       - name: Run PHPStan
         run: ./vendor/bin/phpstan analyse --level=5 src tests
 

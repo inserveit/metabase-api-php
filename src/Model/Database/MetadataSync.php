@@ -7,11 +7,11 @@ namespace Inserve\MetabaseAPI\Model\Database;
  */
 class MetadataSync
 {
-    protected ?int $scheduleMinute;
-    protected ?int $scheduleDay;
-    protected ?int $scheduleFrame;
-    protected ?int $scheduleHour;
-    protected ?string $scheduleType;
+    protected ?int $scheduleMinute = null;
+    protected ?int $scheduleDay = null;
+    protected ?int $scheduleFrame = null;
+    protected ?int $scheduleHour = null;
+    protected ?string $scheduleType = null;
 
     /**
      * @return int|null

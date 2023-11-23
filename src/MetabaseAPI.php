@@ -94,7 +94,7 @@ class MetabaseAPI
                 throw new MetabaseAPIException('Unable to authenticate.');
             }
 
-            $response = json_decode($response->getBody());
+            $response = json_decode((string) $response->getBody());
             if (!isset($response->id)) {
                 throw new MetabaseAPIException('Invalid authentication response.');
             }

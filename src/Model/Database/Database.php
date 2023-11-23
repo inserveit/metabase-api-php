@@ -252,7 +252,7 @@ class Database
      */
     public function setFeatures(?array $features): self
     {
-        $this->features = $features;
+        $this->features = $features ?? [];
 
         return $this;
     }
