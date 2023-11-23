@@ -1,11 +1,13 @@
-# Inserve API
+![workflow](https://github.com/inserveit/metabase-api-php/actions/workflows/build-actions.yml/badge.svg) 
+[![Latest Stable Version](http://poser.pugx.org/inserve/metabase-api-php/v)](https://packagist.org/packages/inserve/metabase-api-php) 
+[![Latest Unstable Version](http://poser.pugx.org/inserve/metabase-api-php/v/unstable)](https://packagist.org/packages/inserve/metabase-api-php)
+[![License](http://poser.pugx.org/inserve/metabase-api-php/license)](https://packagist.org/packages/inserve/metabase-api-php)
 
+# Inserve API
 A PHP Wrapper for [Metabase](https://metabase.com)
 
-![workflow](https://github.com/inserveit/metabase-api-php/actions/workflows/build-actions.yml/badge.svg)
-
 ## Requirements
-- PHP 8.2
+[![PHP Version Require](http://poser.pugx.org/inserve/metabase-api-php/require/php)](https://packagist.org/packages/inserve/metabase-api-php)
 
 ## Installation
 `composer require inserve/metabase-api-php`
