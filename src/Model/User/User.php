@@ -14,6 +14,7 @@ class User
     protected ?bool $isActive = null;
     /** @var UserGroupMemberships[]|null */
     protected ?array $userGroupMemberships = [];
+    protected ?array $groupIds = [];
     protected ?bool $isQbnewb = null;
     protected ?string $updatedAt = null;
     protected ?bool $isSuperuser = null;
@@ -70,6 +71,14 @@ class User
     public function getUserGroupMemberships(): ?array
     {
         return $this->userGroupMemberships;
+    }
+
+    /**
+     * @return array|null
+     */
+    public function getGroupIds(): ?array
+    {
+        return $this->groupIds;
     }
 
     /**
@@ -212,6 +221,18 @@ class User
     public function setUserGroupMemberships(?array $userGroupMemberships): self
     {
         $this->userGroupMemberships = $userGroupMemberships;
+
+        return $this;
+    }
+
+    /**
+     * @param array|null $groupIds
+     *
+     * @return self
+     */
+    public function setGroupIds(?array $groupIds): self
+    {
+        $this->groupIds = $groupIds;
 
         return $this;
     }
