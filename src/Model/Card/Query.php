@@ -9,6 +9,7 @@ use Symfony\Component\Serializer\Annotation\SerializedName;
  */
 class Query
 {
+    protected ?array $joins = null;
     protected ?array $filter = null;
     protected ?array $breakout = null;
     protected ?array $aggregation = null;
@@ -18,6 +19,14 @@ class Query
 
     #[SerializedName('source-table')]
     protected ?int $sourceTable = null;
+
+    /**
+     * @return array|null
+     */
+    public function getJoins(): ?array
+    {
+        return $this->joins;
+    }
 
     /**
      * @return array|null
@@ -57,6 +66,18 @@ class Query
     public function getAggregation(): ?array
     {
         return $this->aggregation;
+    }
+
+    /**
+     * @param array|null $joins
+     *
+     * @return self
+     */
+    public function setJoins(?array $joins): self
+    {
+        $this->joins = $joins;
+
+        return $this;
     }
 
     /**
