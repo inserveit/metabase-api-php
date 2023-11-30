@@ -3,7 +3,7 @@
 namespace Inserve\MetabaseAPI\Model\Card;
 
 use Inserve\MetabaseAPI\Model\Database\TableColumn;
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 /**
  *
@@ -66,7 +66,16 @@ class VisualizationSettings
 
     #[SerializedName('table.cell_column')]
     protected ?string $tableCellColumn = null;
+
+    #[SerializedName('table.column_formatting')]
+    protected ?array $tableColumnFormatting = null;
+
+    #[SerializedName('pivot_table.column_split')]
+    protected ?array $pivotTableColumnSplit = null;
+
     protected ?array $columnSettings = null;
+    protected ?array $seriesSettings = null;
+
 
     /**
      * @return TableColumn[]|null
@@ -77,11 +86,27 @@ class VisualizationSettings
     }
 
     /**
+     * @return array|null
+     */
+    public function getTableColumnFormatting(): ?array
+    {
+        return $this->tableColumnFormatting;
+    }
+
+    /**
      * @return string|null
      */
     public function getTablePivotColumn(): ?string
     {
         return $this->tablePivotColumn;
+    }
+
+    /**
+     * @return array|null
+     */
+    public function getPivotTableColumnSplit(): ?array
+    {
+        return $this->pivotTableColumnSplit;
     }
 
     /**
@@ -186,6 +211,14 @@ class VisualizationSettings
     public function getColumnSettings(): ?array
     {
         return $this->columnSettings;
+    }
+
+    /**
+     * @return array|null
+     */
+    public function getSeriesSetttings(): ?array
+    {
+        return $this->seriesSettings;
     }
 
     /**
@@ -376,6 +409,30 @@ class VisualizationSettings
     }
 
     /**
+     * @param array|null $pivotTableColumnSplit
+     *
+     * @return self
+     */
+    public function setPivotTableColumnSplit(?array $pivotTableColumnSplit): self
+    {
+        $this->pivotTableColumnSplit = $pivotTableColumnSplit;
+
+        return $this;
+    }
+
+    /**
+     * @param array|null $tableColumnFormatting
+     *
+     * @return self
+     */
+    public function setTableColumnFormatting(?array $tableColumnFormatting): self
+    {
+        $this->tableColumnFormatting = $tableColumnFormatting;
+
+        return $this;
+    }
+
+    /**
      * @param string|null $tableCellColumn
      *
      * @return self
@@ -399,6 +456,17 @@ class VisualizationSettings
         return $this;
     }
 
+    /**
+     * @param array|null $seriesSettings
+     *
+     * @return self
+     */
+    public function setSeriesSettings(?array $seriesSettings): self
+    {
+        $this->seriesSettings = $seriesSettings;
+
+        return $this;
+    }
 
     /**
      * @param string|null $piePercentVisibility

@@ -2,7 +2,7 @@
 
 namespace Inserve\MetabaseAPI\Model\Card;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 /**
  *
@@ -13,6 +13,9 @@ class Query
     protected ?array $filter = null;
     protected ?array $breakout = null;
     protected ?array $aggregation = null;
+
+    #[SerializedName('order-by')]
+    protected ?array $orderBy = null;
 
     #[SerializedName('source-query')]
     protected ?Query $sourceQuery = null;
@@ -66,6 +69,14 @@ class Query
     public function getAggregation(): ?array
     {
         return $this->aggregation;
+    }
+
+    /**
+     * @return array|null
+     */
+    public function getOrderBy(): ?array
+    {
+        return $this->orderBy;
     }
 
     /**
@@ -136,6 +147,18 @@ class Query
     public function setAggregation(?array $aggregation): self
     {
         $this->aggregation = $aggregation;
+
+        return $this;
+    }
+
+    /**
+     * @param array|null $orderBy
+     *
+     * @return self
+     */
+    public function setOrderBy(?array $orderBy): self
+    {
+        $this->orderBy = $orderBy;
 
         return $this;
     }
