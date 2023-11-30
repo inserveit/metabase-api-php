@@ -45,6 +45,18 @@ class VisualizationSettings
     #[SerializedName('graph.dimensions')]
     protected ?array $graphDimensions = null;
 
+    #[SerializedName('pie.percent_visibility')]
+    protected ?string $piePercentVisibility = null;
+
+    #[SerializedName('pie.slice_threshold')]
+    protected ?float $pieSliceTreshold = null;
+
+    #[SerializedName('pie.show_legend')]
+    protected ?bool $pieShowLegend = null;
+
+    #[SerializedName('pie.show_total')]
+    protected ?bool $pieShowTotal = null;
+
     /** @var TableColumn[]|null */
     #[SerializedName('table.columns')]
     protected ?array $tableColumns = null;
@@ -174,6 +186,39 @@ class VisualizationSettings
     public function getColumnSettings(): ?array
     {
         return $this->columnSettings;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getPiePercentVisibility(): ?string
+    {
+        return $this->piePercentVisibility;
+    }
+
+    /**
+     * @return float|null
+     */
+    public function getPieSliceTreshold(): ?float
+    {
+        return $this->pieSliceTreshold;
+    }
+
+
+    /**
+     * @return bool|null
+     */
+    public function getPieShowLegend(): ?bool
+    {
+        return $this->pieShowLegend;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function getPieShowTotal(): ?bool
+    {
+        return $this->pieShowTotal;
     }
 
     /**
@@ -350,6 +395,55 @@ class VisualizationSettings
     public function setColumnSettings(?array $columnSettings): self
     {
         $this->columnSettings = $columnSettings;
+
+        return $this;
+    }
+
+
+    /**
+     * @param string|null $piePercentVisibility
+     *
+     * @return self
+     */
+    public function setPiePercentVisibility(?string $piePercentVisibility): self
+    {
+        $this->piePercentVisibility = $piePercentVisibility;
+
+        return $this;
+    }
+
+    /**
+     * @param float|null $pieSliceTreshold
+     *
+     * @return self
+     */
+    public function setPieSliceTreshold(?float $pieSliceTreshold): self
+    {
+        $this->pieSliceTreshold = $pieSliceTreshold;
+
+        return $this;
+    }
+
+    /**
+     * @param bool|null $pieShowLegend
+     *
+     * @return self
+     */
+    public function setPieShowLegend(?bool $pieShowLegend): self
+    {
+        $this->pieShowLegend = $pieShowLegend;
+
+        return $this;
+    }
+
+    /**
+     * @param bool|null $pieShowTotal
+     *
+     * @return self
+     */
+    public function setPieShowTotal(?bool $pieShowTotal): self
+    {
+        $this->pieShowTotal = $pieShowTotal;
 
         return $this;
     }
