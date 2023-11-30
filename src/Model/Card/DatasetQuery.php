@@ -10,6 +10,7 @@ class DatasetQuery
     protected ?int $database = null;
     protected ?string $type = null;
     protected ?Query $query = null;
+    protected ?Native $native = null;
 
     /**
      * @return int|null
@@ -36,6 +37,14 @@ class DatasetQuery
     }
 
     /**
+     * @return Native|null
+     */
+    public function getNative(): ?Native
+    {
+        return $this->native;
+    }
+
+    /**
      * @param int|null $database
      *
      * @return self
@@ -56,6 +65,18 @@ class DatasetQuery
     {
         $this->type = $type;
         
+        return $this;
+    }
+
+    /**
+     * @param Native|null $native
+     *
+     * @return self
+     */
+    public function setNative(?Native $native): self
+    {
+        $this->native = $native;
+
         return $this;
     }
 
