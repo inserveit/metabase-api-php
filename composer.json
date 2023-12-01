@@ -6,8 +6,8 @@
     "require": {
         "php": "^8.2",
         "guzzlehttp/guzzle": "^7.7",
-        "symfony/serializer": "^6.3",
-        "symfony/property-access": "^6.3",
+        "symfony/serializer": "^6.3|^7",
+        "symfony/property-access": "^6.3|^7",
         "psr/log": "^3.0",
         "phpdocumentor/reflection-docblock": "^5.3",
         "lcobucci/jwt": "^4.3"
