@@ -10,8 +10,8 @@ jobs:
         phpunit-versions: ['latest']
         include:
           - operating-system: 'ubuntu-latest'
-            php-versions: '8.0'
-            phpunit-versions: 9
+            php-versions: '8.2'
+            phpunit-versions: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v4
