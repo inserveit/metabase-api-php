@@ -111,14 +111,13 @@ class EmbedAPI extends AbstractAPIClient
             InMemory::plainText($this->embeddedSecretKey)
         );
 
-        $jwtBuilder = $jwtConfig->builder();
-        $jwtBuilder
+        $jwtBuilder = $jwtConfig->builder()
             ->withClaim('resource', [$resource => $id])
             ->withClaim('params', empty($params) ? (object)[] : $params)
         ;
 
         if ($this->expiresAt) {
-            $jwtBuilder->expiresAt($this->expiresAt);
+            $jwtBuilder = $jwtBuilder->expiresAt($this->expiresAt);
         }
 
         return $jwtBuilder
