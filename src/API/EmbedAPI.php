@@ -39,7 +39,7 @@ class EmbedAPI extends AbstractAPIClient
 
         if ($seconds) {
             $expiresAt = (new DateTimeImmutable())->modify(sprintf('+%d seconds', $seconds));
-            if ($expiresAt === false) {
+            if (!$expiresAt instanceof DateTimeImmutable) {
                 $expiresAt = null;
             }
         }
