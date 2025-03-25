@@ -5,7 +5,7 @@ namespace Inserve\MetabaseAPI\Model\Database;
 /**
  *
  */
-class Details
+final class Details
 {
     protected ?string $host = null;
     protected ?int $port = null;

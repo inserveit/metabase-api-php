@@ -5,7 +5,7 @@ namespace Inserve\MetabaseAPI\Model\Database;
 /**
  *
  */
-class Type
+final class Type
 {
     protected ?TypeText $typeText = null;
     protected ?TypeNumber $typeNumber = null;

@@ -7,7 +7,7 @@ use Inserve\MetabaseAPI\MetabaseAPIException;
 /**
  *
  */
-class SettingAPI extends AbstractAPIClient
+final class SettingAPI extends AbstractAPIClient
 {
     /**
      * @return array

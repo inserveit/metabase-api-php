@@ -9,7 +9,7 @@ use Inserve\MetabaseAPI\Model\Permissions\Permission;
 /**
  *
  */
-class CollectionAPI extends AbstractAPIClient
+final class CollectionAPI extends AbstractAPIClient
 {
     /**
      * @param string|int $id
@@ -75,7 +75,7 @@ class CollectionAPI extends AbstractAPIClient
     public function update(Collection $collection): ?Collection
     {
         $collectionId = $collection->getId();
-        if (!$collectionId) {
+        if ($collectionId === null) {
             return null;
         }
 

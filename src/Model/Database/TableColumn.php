@@ -5,7 +5,7 @@ namespace Inserve\MetabaseAPI\Model\Database;
 /**
  *
  */
-class TableColumn
+final class TableColumn
 {
     protected ?string $name = null;
     protected ?array $fieldRef = null;

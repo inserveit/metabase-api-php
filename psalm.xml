@@ -8,6 +8,9 @@
     findUnusedBaselineEntry="true"
     findUnusedCode="false"
 >
+    <issueHandlers>
+        <ClassMustBeFinal errorLevel="suppress" />
+    </issueHandlers>
     <projectFiles>
         <directory name="src" />
         <ignoreFiles>

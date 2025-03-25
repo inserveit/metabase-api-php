@@ -16,7 +16,7 @@ use Inserve\MetabaseAPI\MetabaseAPIException;
 /**
  *
  */
-class MetabaseAPITest extends TestCase
+final class MetabaseAPITest extends TestCase
 {
     protected ClientInterface $httpClient;
     protected MetabaseAPI $metabaseAPI;

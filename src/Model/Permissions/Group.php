@@ -5,7 +5,7 @@ namespace Inserve\MetabaseAPI\Model\Permissions;
 /**
  *
  */
-class Group
+final class Group
 {
     protected ?int $id = null;
     protected ?string $name = null;

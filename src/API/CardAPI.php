@@ -8,7 +8,7 @@ use Inserve\MetabaseAPI\Model\Card\Card;
 /**
  *
  */
-class CardAPI extends AbstractAPIClient
+final class CardAPI extends AbstractAPIClient
 {
     /**
      * @return Card[]
@@ -72,7 +72,7 @@ class CardAPI extends AbstractAPIClient
     public function update(Card $card): ?Card
     {
         $cardId = $card->getId();
-        if (!$cardId) {
+        if ($cardId === null) {
             return null;
         }
 

@@ -7,7 +7,7 @@ use Symfony\Component\Serializer\Attribute\SerializedName;
 /**
  *
  */
-class Query
+final class Query
 {
     protected ?array $joins = null;
     protected ?array $filter = null;

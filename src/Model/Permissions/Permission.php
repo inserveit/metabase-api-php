@@ -5,7 +5,7 @@ namespace Inserve\MetabaseAPI\Model\Permissions;
 /**
  *
  */
-class Permission
+final class Permission
 {
     protected ?int $revision = null;
     protected array $groups = [];

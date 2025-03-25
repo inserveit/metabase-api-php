@@ -5,7 +5,7 @@ namespace Inserve\MetabaseAPI\Model\Database;
 /**
  *
  */
-class Field
+final class Field
 {
     protected ?string $description = null;
     protected ?string $databaseType = null;

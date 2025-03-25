@@ -5,7 +5,7 @@ namespace Inserve\MetabaseAPI\Model\Database;
 /**
  *
  */
-class MetadataSync
+final class MetadataSync
 {
     protected ?int $scheduleMinute = null;
     protected ?int $scheduleDay = null;

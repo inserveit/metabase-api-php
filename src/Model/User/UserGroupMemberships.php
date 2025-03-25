@@ -5,7 +5,7 @@ namespace Inserve\MetabaseAPI\Model\User;
 /**
  *
  */
-class UserGroupMemberships
+final class UserGroupMemberships
 {
     protected ?int $id = null;
     protected ?bool $isGroupManager = null;

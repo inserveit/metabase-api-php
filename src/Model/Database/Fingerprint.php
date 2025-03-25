@@ -5,7 +5,7 @@ namespace Inserve\MetabaseAPI\Model\Database;
 /**
  *
  */
-class Fingerprint
+final class Fingerprint
 {
     protected ?GlobalObject $global = null;
     protected ?Type $type = null;

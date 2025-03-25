@@ -7,7 +7,7 @@ use Exception;
 /**
  *
  */
-class MetabaseAPIException extends Exception
+final class MetabaseAPIException extends Exception
 {
 
 }

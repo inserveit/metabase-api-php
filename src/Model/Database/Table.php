@@ -5,7 +5,7 @@ namespace Inserve\MetabaseAPI\Model\Database;
 /**
  *
  */
-class Table
+final class Table
 {
     protected ?string $description = null;
     protected ?string $entityType = null;

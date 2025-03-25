@@ -9,7 +9,7 @@ use Inserve\MetabaseAPI\Model\Dashboard\OrderedCard;
 /**
  *
  */
-class DashboardAPI extends AbstractAPIClient
+final class DashboardAPI extends AbstractAPIClient
 {
     /**
      * @return Dashboard[]
@@ -73,7 +73,7 @@ class DashboardAPI extends AbstractAPIClient
     public function update(Dashboard $dashboard): ?Dashboard
     {
         $dashboardId = $dashboard->getId();
-        if (!$dashboardId) {
+        if ($dashboardId === null) {
             return null;
         }
 
@@ -112,7 +112,7 @@ class DashboardAPI extends AbstractAPIClient
     public function addCards(Dashboard $dashboard, array $cards): array
     {
         $dashboardId = $dashboard->getId();
-        if (!$dashboardId) {
+        if ($dashboardId == null) {
             return [];
         }
 

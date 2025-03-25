@@ -5,7 +5,7 @@ namespace Inserve\MetabaseAPI\Model\Collection;
 /**
  *
  */
-class Collection
+final class Collection
 {
     protected ?string $name = null;
     protected string|int|null $id = null;
@@ -160,7 +160,7 @@ class Collection
     public function setName(?string $name): self
     {
         $this->name = $name;
-        
+
         return $this;
     }
 
@@ -172,7 +172,7 @@ class Collection
     public function setId(string|int|null $id): self
     {
         $this->id = $id;
-        
+
         return $this;
     }
 
@@ -184,7 +184,7 @@ class Collection
     public function setParentId(?int $parentId): self
     {
         $this->parentId = $parentId;
-        
+
         return $this;
     }
 
@@ -196,7 +196,7 @@ class Collection
     public function setEffectiveLocation(?string $effectiveLocation): self
     {
         $this->effectiveLocation = $effectiveLocation;
-        
+
         return $this;
     }
 
@@ -208,7 +208,7 @@ class Collection
     public function setEffectiveAncestors(?array $effectiveAncestors): self
     {
         $this->effectiveAncestors = $effectiveAncestors;
-        
+
         return $this;
     }
 
@@ -220,7 +220,7 @@ class Collection
     public function setCanWrite(?bool $canWrite): self
     {
         $this->canWrite = $canWrite;
-        
+
         return $this;
     }
 
@@ -232,7 +232,7 @@ class Collection
     public function setDescription(?string $description): self
     {
         $this->description = $description;
-        
+
         return $this;
     }
 
@@ -244,7 +244,7 @@ class Collection
     public function setArchived(?bool $archived): self
     {
         $this->archived = $archived;
-        
+
         return $this;
     }
 
@@ -256,7 +256,7 @@ class Collection
     public function setSlug(?string $slug): self
     {
         $this->slug = $slug;
-        
+
         return $this;
     }
 
@@ -268,7 +268,7 @@ class Collection
     public function setColor(?string $color): self
     {
         $this->color = $color;
-        
+
         return $this;
     }
 
@@ -280,7 +280,7 @@ class Collection
     public function setPersonalOwnerId(?int $personalOwnerId): self
     {
         $this->personalOwnerId = $personalOwnerId;
-        
+
         return $this;
     }
 
@@ -292,7 +292,7 @@ class Collection
     public function setType(?string $type): self
     {
         $this->type = $type;
-        
+
         return $this;
     }
 
@@ -304,7 +304,7 @@ class Collection
     public function setEntityId(?string $entityId): self
     {
         $this->entityId = $entityId;
-        
+
         return $this;
     }
 
@@ -316,7 +316,7 @@ class Collection
     public function setLocation(?string $location): self
     {
         $this->location = $location;
-        
+
         return $this;
     }
 

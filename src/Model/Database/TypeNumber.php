@@ -5,7 +5,7 @@ namespace Inserve\MetabaseAPI\Model\Database;
 /**
  *
  */
-class TypeNumber
+final class TypeNumber
 {
     protected int|float|null $min = null;
     protected int|float|null $q1 = null;

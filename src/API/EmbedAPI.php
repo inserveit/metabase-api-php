@@ -11,7 +11,7 @@ use Lcobucci\JWT\Signer\Key\InMemory;
 /**
  *
  */
-class EmbedAPI extends AbstractAPIClient
+final class EmbedAPI extends AbstractAPIClient
 {
     protected string $embeddedSecretKey = '';
     protected ?DateTimeImmutable $expiresAt = null;
@@ -37,7 +37,7 @@ class EmbedAPI extends AbstractAPIClient
     {
         $expiresAt = null;
 
-        if ($seconds) {
+        if ($seconds !== null) {
             $expiresAt = (new DateTimeImmutable())->modify(sprintf('+%d seconds', $seconds));
             if (!$expiresAt instanceof DateTimeImmutable) {
                 $expiresAt = null;

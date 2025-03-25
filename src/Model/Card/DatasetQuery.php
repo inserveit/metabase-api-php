@@ -5,7 +5,7 @@ namespace Inserve\MetabaseAPI\Model\Card;
 /**
  *
  */
-class DatasetQuery
+final class DatasetQuery
 {
     protected ?int $database = null;
     protected ?string $type = null;
@@ -52,7 +52,7 @@ class DatasetQuery
     public function setDatabase(?int $database): self
     {
         $this->database = $database;
-        
+
         return $this;
     }
 
@@ -64,7 +64,7 @@ class DatasetQuery
     public function setType(?string $type): self
     {
         $this->type = $type;
-        
+
         return $this;
     }
 
@@ -88,7 +88,7 @@ class DatasetQuery
     public function setQuery(?Query $query): self
     {
         $this->query = $query;
-        
+
         return $this;
     }
 }

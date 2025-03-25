@@ -9,7 +9,7 @@ use Inserve\MetabaseAPI\Model\Database\Table;
 /**
  *
  */
-class DatabaseAPI extends AbstractAPIClient
+final class DatabaseAPI extends AbstractAPIClient
 {
     /**
      * @param Database $database
@@ -39,7 +39,7 @@ class DatabaseAPI extends AbstractAPIClient
     public function update(Database $database): ?Database
     {
         $databaseId = $database->getId();
-        if (!$databaseId) {
+        if ($databaseId === null) {
             return null;
         }
 

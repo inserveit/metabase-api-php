@@ -8,7 +8,7 @@ use Inserve\MetabaseAPI\Model\Database\Field;
 /**
  *
  */
-class FieldAPI extends AbstractAPIClient
+final class FieldAPI extends AbstractAPIClient
 {
     /**
      * @param int $id
@@ -37,7 +37,7 @@ class FieldAPI extends AbstractAPIClient
     public function update(Field $field): ?Field
     {
         $fieldId = $field->getId();
-        if (!$fieldId) {
+        if ($fieldId === null) {
             return null;
         }
 

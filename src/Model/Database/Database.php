@@ -5,7 +5,7 @@ namespace Inserve\MetabaseAPI\Model\Database;
 /**
  *
  */
-class Database
+final class Database
 {
     protected ?string $description = null;
     protected array $features = [];
@@ -42,9 +42,9 @@ class Database
     }
 
     /**
-     * @return string[]|null
+     * @return string[]
      */
-    public function getFeatures(): ?array
+    public function getFeatures(): array
     {
         return $this->features;
     }

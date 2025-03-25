@@ -7,7 +7,7 @@ use Inserve\MetabaseAPI\Model\Database\Fingerprint;
 /**
  *
  */
-class ResultMetadata
+final class ResultMetadata
 {
     protected ?string $description = null;
     protected ?string $semanticType = null;
@@ -119,7 +119,7 @@ class ResultMetadata
     public function setDescription(?string $description): self
     {
         $this->description = $description;
-        
+
         return $this;
     }
 
@@ -131,7 +131,7 @@ class ResultMetadata
     public function setSemanticType(?string $semanticType): self
     {
         $this->semanticType = $semanticType;
-        
+
         return $this;
     }
 
@@ -143,7 +143,7 @@ class ResultMetadata
     public function setName(?string $name): self
     {
         $this->name = $name;
-        
+
         return $this;
     }
 
@@ -153,7 +153,7 @@ class ResultMetadata
     public function setFieldRef(?array $fieldRef): self
     {
         $this->fieldRef = $fieldRef;
-        
+
         return $this;
     }
 
@@ -165,7 +165,7 @@ class ResultMetadata
     public function setEffectiveType(?string $effectiveType): self
     {
         $this->effectiveType = $effectiveType;
-        
+
         return $this;
     }
 
@@ -177,7 +177,7 @@ class ResultMetadata
     public function setId(?int $id): self
     {
         $this->id = $id;
-        
+
         return $this;
     }
 
@@ -189,7 +189,7 @@ class ResultMetadata
     public function setVisibilityType(?string $visibilityType): self
     {
         $this->visibilityType = $visibilityType;
-        
+
         return $this;
     }
 
@@ -201,7 +201,7 @@ class ResultMetadata
     public function setDisplayName(?string $displayName): self
     {
         $this->displayName = $displayName;
-        
+
         return $this;
     }
 
@@ -213,7 +213,7 @@ class ResultMetadata
     public function setFingerprint(?Fingerprint $fingerprint): self
     {
         $this->fingerprint = $fingerprint;
-        
+
         return $this;
     }
 
@@ -225,7 +225,7 @@ class ResultMetadata
     public function setBaseType(?string $baseType): self
     {
         $this->baseType = $baseType;
-        
+
         return $this;
     }
 
@@ -237,7 +237,7 @@ class ResultMetadata
     public function setUnit(?string $unit): self
     {
         $this->unit = $unit;
-        
+
         return $this;
     }
 }

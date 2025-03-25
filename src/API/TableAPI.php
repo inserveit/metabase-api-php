@@ -8,7 +8,7 @@ use Inserve\MetabaseAPI\Model\Database\Table;
 /**
  *
  */
-class TableAPI extends AbstractAPIClient
+final class TableAPI extends AbstractAPIClient
 {
     /**
      * @param int $id
@@ -52,7 +52,7 @@ class TableAPI extends AbstractAPIClient
     public function update(Table $table): ?Table
     {
         $tableId = $table->getId();
-        if (!$tableId) {
+        if ($tableId === null) {
             return null;
         }
 

@@ -5,7 +5,7 @@ namespace Inserve\MetabaseAPI\Model\Bookmark;
 /**
  *
  */
-class Bookmark
+final class Bookmark
 {
     protected ?int $itemId = null;
     protected ?string $type = null;
@@ -109,7 +109,7 @@ class Bookmark
     public function setId(?string $id): self
     {
         $this->id = $id;
-        
+
         return $this;
     }
 }

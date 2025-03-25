@@ -5,7 +5,7 @@ namespace Inserve\MetabaseAPI\Model\Database;
 /**
  *
  */
-class TypeDateTime
+final class TypeDateTime
 {
     protected ?string $earliest = null;
     protected ?string $latest = null;

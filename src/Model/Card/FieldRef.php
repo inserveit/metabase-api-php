@@ -5,7 +5,7 @@ namespace Inserve\MetabaseAPI\Model\Card;
 /**
  *
  */
-class FieldRef
+final class FieldRef
 {
     protected ?string $temporalUnit = null;
 

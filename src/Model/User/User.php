@@ -5,7 +5,7 @@ namespace Inserve\MetabaseAPI\Model\User;
 /**
  *
  */
-class User
+final class User
 {
     protected ?string $email = null;
     protected ?string $firstName = null;

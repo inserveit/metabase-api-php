@@ -145,17 +145,17 @@ class APIClient
     public function deserializeList(?string $response, string $class, ?string $key = null): array
     {
         try {
-            if (!$response) {
+            if (!is_string($response)) {
                 return [];
             }
 
             $response = json_decode($response, true);
-            if ($key && !isset($response[$key])) {
+            if (is_string($key) && !isset($response[$key])) {
                 return [];
             }
 
             $list = [];
-            $items = $key ? $response[$key] : $response;
+            $items = is_string($key) ? $response[$key] : $response;
 
             foreach ($items as $item) {
                 $list[] = $this->normalizer->denormalize($item, $class);
@@ -178,7 +178,7 @@ class APIClient
             'Content-Type' => 'application/json',
         ];
 
-        if (!empty($this->sessionToken)) {
+        if (is_string($this->sessionToken) && !empty($this->sessionToken)) {
             $headers['X-Metabase-Session'] = $this->sessionToken;
         }
 

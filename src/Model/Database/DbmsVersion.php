@@ -5,7 +5,7 @@ namespace Inserve\MetabaseAPI\Model\Database;
 /**
  *
  */
-class DbmsVersion
+final class DbmsVersion
 {
     protected ?string $flavor = null;
     protected ?string $version = null;

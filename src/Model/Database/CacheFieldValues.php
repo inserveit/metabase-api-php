@@ -5,7 +5,7 @@ namespace Inserve\MetabaseAPI\Model\Database;
 /**
  *
  */
-class CacheFieldValues
+final class CacheFieldValues
 {
     protected ?int $scheduleMinute = null;
     protected ?int $scheduleDay = null;

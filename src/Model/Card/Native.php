@@ -5,7 +5,7 @@ namespace Inserve\MetabaseAPI\Model\Card;
 /**
  *
  */
-class Native
+final class Native
 {
     /**
      * @var string|null

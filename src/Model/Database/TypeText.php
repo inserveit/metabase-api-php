@@ -5,7 +5,7 @@ namespace Inserve\MetabaseAPI\Model\Database;
 /**
  *
  */
-class TypeText
+final class TypeText
 {
     protected int|float|null $percentJson = null;
     protected ?int $percentUrl = null;

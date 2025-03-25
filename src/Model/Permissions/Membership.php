@@ -5,7 +5,7 @@ namespace Inserve\MetabaseAPI\Model\Permissions;
 /**
  *
  */
-class Membership
+final class Membership
 {
     protected ?string $firstName = null;
     protected ?string $lastName = null;

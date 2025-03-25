@@ -5,7 +5,7 @@ namespace Inserve\MetabaseAPI\Model\Card;
 /**
  *
  */
-class Card
+final class Card
 {
     protected ?string $description = null;
     protected ?bool $archived = null;

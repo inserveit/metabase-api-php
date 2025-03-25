@@ -8,7 +8,7 @@ use Inserve\MetabaseAPI\Model\Card\VisualizationSettings;
 /**
  *
  */
-class OrderedCard
+final class OrderedCard
 {
     protected ?int $sizeX = null;
     protected ?int $dashboardTabId = null;

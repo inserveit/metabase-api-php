@@ -5,7 +5,7 @@ namespace Inserve\MetabaseAPI\Model\Database;
 /**
  *
  */
-class GlobalObject
+final class GlobalObject
 {
     protected ?int $distinctCount = null;
     protected int|float|null $nil = null;

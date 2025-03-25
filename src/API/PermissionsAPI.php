@@ -11,7 +11,7 @@ use Inserve\MetabaseAPI\Model\User\User;
 /**
  *
  */
-class PermissionsAPI extends AbstractAPIClient
+final class PermissionsAPI extends AbstractAPIClient
 {
     /**
      * @return Permission|null
@@ -87,10 +87,15 @@ class PermissionsAPI extends AbstractAPIClient
      */
     public function createGroup(string $name): ?Group
     {
+        $body = json_encode(['name' => $name]);
+        if ($body === false) {
+            return null;
+        }
+
         $response = $this->apiClient->call(
             'POST',
             '/api/permissions/group',
-            json_encode(['name' => $name])
+            $body
         );
 
         return $this->apiClient->deserialize($response, Group::class);
@@ -106,14 +111,19 @@ class PermissionsAPI extends AbstractAPIClient
     public function updateGroup(Group $group): ?Group
     {
         $groupId = $group->getId();
-        if (!$groupId) {
+        if ($groupId === null) {
+            return null;
+        }
+
+        $body = json_encode(['name' => $group->getName()]);
+        if ($body === false) {
             return null;
         }
 
         $response = $this->apiClient->call(
             'PUT',
             sprintf('/api/permissions/group/%d', $groupId),
-            json_encode(['name' => $group->getName()])
+            $body
         );
 
         return $this->apiClient->deserialize($response, Group::class);
@@ -145,14 +155,20 @@ class PermissionsAPI extends AbstractAPIClient
      */
     public function addUserToGroup(User $user, Group $group, bool $isGroupManager = false): array
     {
+        $body = json_encode([
+            'user_id' => $user->getId(),
+            'group_id' => $group->getId(),
+            'is_group_manager' => $isGroupManager,
+        ]);
+
+        if ($body === false) {
+            return [];
+        }
+
         $response = $this->apiClient->call(
             'POST',
             '/api/permissions/membership',
-            json_encode([
-                'user_id' => $user->getId(),
-                'group_id' => $group->getId(),
-                'is_group_manager' => $isGroupManager
-            ])
+            $body
         );
 
         return $this->apiClient->deserializeList($response, Membership::class);

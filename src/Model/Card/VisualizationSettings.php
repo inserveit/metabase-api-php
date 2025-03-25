@@ -8,7 +8,7 @@ use Symfony\Component\Serializer\Attribute\SerializedName;
 /**
  *
  */
-class VisualizationSettings
+final class VisualizationSettings
 {
     #[SerializedName('graph.show_goal')]
     protected ?bool $graphShowGoal = null;
@@ -274,7 +274,7 @@ class VisualizationSettings
     public function setGraphShowGoal(?bool $graphShowGoal): self
     {
         $this->graphShowGoal = $graphShowGoal;
-        
+
         return $this;
     }
 
@@ -286,7 +286,7 @@ class VisualizationSettings
     public function setGraphShowTrendline(?bool $graphShowTrendline): self
     {
         $this->graphShowTrendline = $graphShowTrendline;
-        
+
         return $this;
     }
 
@@ -298,7 +298,7 @@ class VisualizationSettings
     public function setGraphShowValues(?bool $graphShowValues): self
     {
         $this->graphShowValues = $graphShowValues;
-        
+
         return $this;
     }
 
@@ -310,7 +310,7 @@ class VisualizationSettings
     public function setGraphSeriesOrderDimension(?string $graphSeriesOrderDimension): self
     {
         $this->graphSeriesOrderDimension = $graphSeriesOrderDimension;
-        
+
         return $this;
     }
 
@@ -322,7 +322,7 @@ class VisualizationSettings
     public function setGraphXAxisTitleText(?string $graphXAxisTitleText): self
     {
         $this->graphXAxisTitleText = $graphXAxisTitleText;
-        
+
         return $this;
     }
 
@@ -334,7 +334,7 @@ class VisualizationSettings
     public function setGraphYAxisScale(?string $graphYAxisScale): self
     {
         $this->graphYAxisScale = $graphYAxisScale;
-        
+
         return $this;
     }
 
@@ -346,7 +346,7 @@ class VisualizationSettings
     public function setGraphLabelValueFrequency(?string $graphLabelValueFrequency): self
     {
         $this->graphLabelValueFrequency = $graphLabelValueFrequency;
-        
+
         return $this;
     }
 
@@ -356,7 +356,7 @@ class VisualizationSettings
     public function setGraphMetrics(?array $graphMetrics): self
     {
         $this->graphMetrics = $graphMetrics;
-        
+
         return $this;
     }
 
@@ -368,7 +368,7 @@ class VisualizationSettings
     public function setGraphLabelValueFormatting(?string $graphLabelValueFormatting): self
     {
         $this->graphLabelValueFormatting = $graphLabelValueFormatting;
-        
+
         return $this;
     }
 

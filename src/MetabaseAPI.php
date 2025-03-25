@@ -86,6 +86,10 @@ class MetabaseAPI
             'password' => $password,
         ]);
 
+        if ($loginData === false) {
+            $loginData = null;
+        }
+
         $request = new Request('POST', '/api/session', ['Content-Type' => 'application/json'], $loginData);
 
         try {
@@ -116,7 +120,7 @@ class MetabaseAPI
     {
         $sessionToken = $this->apiClient->getSessionToken();
 
-        if (!$sessionToken) {
+        if ($sessionToken === null) {
             throw new MetabaseAPIException('Not authenticated', 401);
         }
 

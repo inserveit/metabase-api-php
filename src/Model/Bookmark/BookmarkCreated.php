@@ -5,7 +5,7 @@ namespace Inserve\MetabaseAPI\Model\Bookmark;
 /**
  *
  */
-class BookmarkCreated
+final class BookmarkCreated
 {
     protected ?int $id = null;
     protected ?int $userId = null;
@@ -52,7 +52,7 @@ class BookmarkCreated
     public function setId(?int $id): self
     {
         $this->id = $id;
-        
+
         return $this;
     }
 
@@ -64,7 +64,7 @@ class BookmarkCreated
     public function setUserId(?int $userId): self
     {
         $this->userId = $userId;
-        
+
         return $this;
     }
 
@@ -76,7 +76,7 @@ class BookmarkCreated
     public function setDashboardId(?int $dashboardId): self
     {
         $this->dashboardId = $dashboardId;
-        
+
         return $this;
     }
 
@@ -88,7 +88,7 @@ class BookmarkCreated
     public function setCreatedAt(?string $createdAt): self
     {
         $this->createdAt = $createdAt;
-        
+
         return $this;
     }
 }

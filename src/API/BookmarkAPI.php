@@ -9,7 +9,7 @@ use Inserve\MetabaseAPI\Model\Bookmark\BookmarkCreated;
 /**
  *
  */
-class BookmarkAPI extends AbstractAPIClient
+final class BookmarkAPI extends AbstractAPIClient
 {
     /**
      * @return Bookmark[]

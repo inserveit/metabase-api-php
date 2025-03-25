@@ -7,7 +7,7 @@ use Inserve\MetabaseAPI\Model\Collection\Collection;
 /**
  *
  */
-class Dashboard
+final class Dashboard
 {
     protected ?string $description = null;
     protected ?bool $archived = null;
@@ -253,7 +253,7 @@ class Dashboard
     public function setDescription(?string $description): self
     {
         $this->description = $description;
-        
+
         return $this;
     }
 
@@ -265,7 +265,7 @@ class Dashboard
     public function setArchived(?bool $archived): self
     {
         $this->archived = $archived;
-        
+
         return $this;
     }
 
@@ -277,7 +277,7 @@ class Dashboard
     public function setCollectionPosition(?int $collectionPosition): self
     {
         $this->collectionPosition = $collectionPosition;
-        
+
         return $this;
     }
 
@@ -287,7 +287,7 @@ class Dashboard
     public function setOrderedCards(?array $orderedCards): self
     {
         $this->orderedCards = $orderedCards;
-        
+
         return $this;
     }
 
@@ -299,7 +299,7 @@ class Dashboard
     public function setParamValues(?array $paramValues): self
     {
         $this->paramValues = $paramValues;
-        
+
         return $this;
     }
 
@@ -311,7 +311,7 @@ class Dashboard
     public function setCanWrite(?bool $canWrite): self
     {
         $this->canWrite = $canWrite;
-        
+
         return $this;
     }
 
@@ -323,7 +323,7 @@ class Dashboard
     public function setEnableEmbedding(?bool $enableEmbedding): self
     {
         $this->enableEmbedding = $enableEmbedding;
-        
+
         return $this;
     }
 
@@ -335,7 +335,7 @@ class Dashboard
     public function setCollectionId(?int $collectionId): self
     {
         $this->collectionId = $collectionId;
-        
+
         return $this;
     }
 
@@ -347,7 +347,7 @@ class Dashboard
     public function setShowInGettingStarted(?bool $showInGettingStarted): self
     {
         $this->showInGettingStarted = $showInGettingStarted;
-        
+
         return $this;
     }
 
@@ -359,7 +359,7 @@ class Dashboard
     public function setName(?string $name): self
     {
         $this->name = $name;
-        
+
         return $this;
     }
 
@@ -371,7 +371,7 @@ class Dashboard
     public function setCreatorId(?int $creatorId): self
     {
         $this->creatorId = $creatorId;
-        
+
         return $this;
     }
 
@@ -383,7 +383,7 @@ class Dashboard
     public function setUpdatedAt(?string $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
-        
+
         return $this;
     }
 
@@ -395,7 +395,7 @@ class Dashboard
     public function setMadePublicById(?int $madePublicById): self
     {
         $this->madePublicById = $madePublicById;
-        
+
         return $this;
     }
 
@@ -407,7 +407,7 @@ class Dashboard
     public function setEmbeddingParams(?array $embeddingParams): self
     {
         $this->embeddingParams = $embeddingParams;
-        
+
         return $this;
     }
 
@@ -419,7 +419,7 @@ class Dashboard
     public function setCacheTtl(?int $cacheTtl): self
     {
         $this->cacheTtl = $cacheTtl;
-        
+
         return $this;
     }
 
@@ -431,7 +431,7 @@ class Dashboard
     public function setOrderedTabs(?array $orderedTabs): self
     {
         $this->orderedTabs = $orderedTabs;
-        
+
         return $this;
     }
 
@@ -443,7 +443,7 @@ class Dashboard
     public function setId(?int $id): self
     {
         $this->id = $id;
-        
+
         return $this;
     }
 
@@ -455,7 +455,7 @@ class Dashboard
     public function setPosition(?int $position): self
     {
         $this->position = $position;
-        
+
         return $this;
     }
 
@@ -467,7 +467,7 @@ class Dashboard
     public function setEntityId(?string $entityId): self
     {
         $this->entityId = $entityId;
-        
+
         return $this;
     }
 
@@ -479,7 +479,7 @@ class Dashboard
     public function setParamFields(?array $paramFields): self
     {
         $this->paramFields = $paramFields;
-        
+
         return $this;
     }
 
@@ -491,7 +491,7 @@ class Dashboard
     public function setCollection(?Collection $collection): self
     {
         $this->collection = $collection;
-        
+
         return $this;
     }
 
@@ -503,7 +503,7 @@ class Dashboard
     public function setParameters(?array $parameters): self
     {
         $this->parameters = $parameters;
-        
+
         return $this;
     }
 
@@ -515,7 +515,7 @@ class Dashboard
     public function setAutoApplyFilters(?bool $autoApplyFilters): self
     {
         $this->autoApplyFilters = $autoApplyFilters;
-        
+
         return $this;
     }
 
@@ -527,7 +527,7 @@ class Dashboard
     public function setCreatedAt(?string $createdAt): self
     {
         $this->createdAt = $createdAt;
-        
+
         return $this;
     }
 
@@ -539,7 +539,7 @@ class Dashboard
     public function setPublicUuid(?string $publicUuid): self
     {
         $this->publicUuid = $publicUuid;
-        
+
         return $this;
     }
 
@@ -551,7 +551,7 @@ class Dashboard
     public function setPointsOfInterest(?string $pointsOfInterest): self
     {
         $this->pointsOfInterest = $pointsOfInterest;
-        
+
         return $this;
     }
 }

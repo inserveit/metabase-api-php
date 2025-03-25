@@ -8,7 +8,7 @@ use Inserve\MetabaseAPI\Model\User\User;
 /**
  *
  */
-class UserAPI extends AbstractAPIClient
+final class UserAPI extends AbstractAPIClient
 {
     /**
      * @param User $user
@@ -38,7 +38,7 @@ class UserAPI extends AbstractAPIClient
     public function update(User $user): ?User
     {
         $userId = $user->getId();
-        if (!$userId) {
+        if ($userId === null) {
             return null;
         }
 
@@ -60,16 +60,19 @@ class UserAPI extends AbstractAPIClient
     public function updatePassword(User $user, string $password): void
     {
         $userId = $user->getId();
-        if (!$userId) {
+        if ($userId === null) {
+            return;
+        }
+
+        $password = json_encode(['password' => $password]);
+        if ($password === false) {
             return;
         }
 
         $this->apiClient->call(
             'PUT',
             sprintf('/api/user/%d/password', $userId),
-            json_encode([
-                'password' => $password,
-            ])
+            $password
         );
     }
 
