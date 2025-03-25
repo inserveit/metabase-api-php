@@ -45,7 +45,7 @@ jobs:
         run: ./vendor/bin/psalm --show-info=true
 
       - name: Run PHPStan
-        run: ./vendor/bin/phpstan analyse --level=5 src tests
+        run: ./vendor/bin/phpstan analyse
 
       - name: Run PHPUnit
         run: ./vendor/bin/phpunit --coverage-text --colors
